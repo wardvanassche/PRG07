@@ -14,8 +14,8 @@ export default function SettingsScreen() {
                     Dark Mode
                 </Text>
                 <Switch
-                    value={colorScheme === 'dark'}  // Set the value based on current color scheme
-                    onValueChange={toggleColorScheme}  // Toggle the color scheme when the switch is toggled
+                    value={colorScheme === 'dark'}
+                    onValueChange={toggleColorScheme}
                 />
             </View>
         </View>
