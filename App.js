@@ -1,20 +1,44 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from './app/screens/HomeScreen';
-import ListScreen from './app/screens/ListScreen';
 import MapScreen from "./app/screens/MapScreen";
+import ListScreen from './app/screens/ListScreen';
+import SettingsScreen from './app/screens/SettingsScreen';
 import "./global.css";
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
     return (
         <NavigationContainer>
-            <Tab.Navigator>
-                <Tab.Screen name="Home" component={HomeScreen}/>
-                <Tab.Screen name="Map" component={MapScreen}/>
-                <Tab.Screen name="List" component={ListScreen}/>
+            <Tab.Navigator
+                screenOptions={{
+                    animation: "shift",
+                }}
+            >
+                <Tab.Screen
+                    name="Map"
+                    component={MapScreen}
+                    options={{
+                        tabBarIcon: () => <Icon name="map-outline" size={24} color="black" />,
+                        headerShown: false,
+                    }}
+                />
+                <Tab.Screen
+                    name="List"
+                    component={ListScreen}
+                    options={{
+                        tabBarIcon: () => <Icon name="list-outline" size={24} color="black" />,
+                    }}
+                />
+                <Tab.Screen
+                    name="Settings"
+                    component={SettingsScreen}
+                    options={{
+                        tabBarIcon: () => <Icon name="settings-outline" size={24} color="black" />,
+                    }}
+                />
             </Tab.Navigator>
         </NavigationContainer>
     );

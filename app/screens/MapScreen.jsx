@@ -1,4 +1,4 @@
-import {SafeAreaView, Text} from 'react-native';
+import {SafeAreaView, Text, View} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import useLocation from '../hooks/useLocation';
 import React from 'react';
@@ -15,7 +15,7 @@ export default function MapScreen() {
     }
 
     return (
-        <SafeAreaView className="flex-1 justify-center items-center">
+        <View className="flex-1 justify-center items-center">
             <MapView
                 style={{
                     height: '100%',
@@ -34,6 +34,6 @@ export default function MapScreen() {
                     pinColor={'red'}
                 />
             </MapView>
-        </SafeAreaView>
+        </View>
     );
 }
