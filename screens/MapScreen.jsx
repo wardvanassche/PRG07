@@ -1,4 +1,4 @@
-import {StyleSheet, SafeAreaView, Text, Alert} from 'react-native';
+import {SafeAreaView, Text, Alert} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import useLocation from '../hooks/useLocation';
 import {useFocusEffect} from '@react-navigation/native';
@@ -27,16 +27,19 @@ export default function MapScreen() {
 
     if (latitude === null || longitude === null) {
         return (
-            <SafeAreaView style={styles.container}>
+            <SafeAreaView className="flex-1 justify-center items-center">
                 <Text>Loading location...</Text>
             </SafeAreaView>
         );
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView className="flex-1 justify-center items-center">
             <MapView
-                style={styles.map}
+                style={{
+                    height: '100%',
+                    width: '100%'
+                }}
                 region={{
                     latitude: latitude,
                     longitude: longitude,
@@ -53,15 +56,3 @@ export default function MapScreen() {
         </SafeAreaView>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    map: {
-        width: '100%',
-        height: '100%',
-    },
-});
