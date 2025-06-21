@@ -1,29 +1,10 @@
-import {SafeAreaView, Text, Alert} from 'react-native';
+import {SafeAreaView, Text} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import useLocation from '../hooks/useLocation';
-import {useFocusEffect} from '@react-navigation/native';
 import React from 'react';
 
 export default function MapScreen() {
     const {latitude, longitude, errorMsg} = useLocation();
-
-    useFocusEffect(
-        React.useCallback(() => {
-            if (errorMsg) {
-                Alert.alert(
-                    'Error',
-                    errorMsg,
-                    [
-                        {
-                            text: 'OK',
-                            onPress: () => console.log('OK pressed'),
-                            style: 'default',
-                        },
-                    ]
-                );
-            }
-        }, [errorMsg])
-    );
 
     if (latitude === null || longitude === null) {
         return (
