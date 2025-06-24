@@ -1,10 +1,10 @@
 import {SafeAreaView, Text, View} from 'react-native';
-import MapView, {Marker} from 'react-native-maps';
+import MapView, {Callout, Marker} from 'react-native-maps';
 import useLocation from '../hooks/useLocation';
 import React from 'react';
 
 export default function MapScreen() {
-    const {latitude, longitude, errorMsg} = useLocation();
+    const {latitude, longitude} = useLocation();
 
     if (latitude === null || longitude === null) {
         return (
@@ -30,9 +30,13 @@ export default function MapScreen() {
             >
                 <Marker
                     coordinate={{latitude: latitude, longitude: longitude}}
-                    description='je bent hier'
-                    pinColor={'red'}
-                />
+                >
+                    <Callout>
+                        <View>
+                            <Text>Je bent hier</Text>
+                        </View>
+                    </Callout>
+                </Marker>
             </MapView>
         </View>
     );

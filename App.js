@@ -6,22 +6,43 @@ import ListScreen from './app/screens/ListScreen';
 import SettingsScreen from './app/screens/SettingsScreen';
 import "./global.css";
 import Icon from 'react-native-vector-icons/Ionicons';
+import useTheme from "./app/hooks/useTheme";
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+    const theme = useTheme();
+
     return (
         <NavigationContainer>
             <Tab.Navigator
                 screenOptions={{
                     animation: "shift",
+                    tabBarStyle: {
+                        backgroundColor: theme.backgroundColor,
+                        borderTopWidth: 1,
+                        borderTopColor: theme.tabBarBorderColor,
+                    },
+                    tabBarActiveTintColor: theme.tabBarActiveTintColor,
+                    tabBarInactiveTintColor: theme.tabBarInactiveTintColor,
+                    headerStyle: {
+                        backgroundColor: theme.headerBackgroundColor,
+                        borderBottomWidth: 1,
+                        borderBottomColor: theme.headerBorderColor,
+                        elevation: 0,
+                        shadowOpacity: 0,
+                    },
+                    headerTitleStyle: {
+                        color: theme.headerTextColor,
+                    },
+                    headerTintColor: theme.headerIconColor,
                 }}
             >
                 <Tab.Screen
                     name="Map"
                     component={MapScreen}
                     options={{
-                        tabBarIcon: () => <Icon name="map-outline" size={24} color="black" />,
+                        tabBarIcon: ({color}) => <Icon name="map-outline" size={22} color={color}/>,
                         headerShown: false,
                     }}
                 />
@@ -29,14 +50,14 @@ export default function App() {
                     name="List"
                     component={ListScreen}
                     options={{
-                        tabBarIcon: () => <Icon name="list-outline" size={24} color="black" />,
+                        tabBarIcon: ({color}) => <Icon name="list-outline" size={22} color={color}/>,
                     }}
                 />
                 <Tab.Screen
                     name="Settings"
                     component={SettingsScreen}
                     options={{
-                        tabBarIcon: () => <Icon name="settings-outline" size={24} color="black" />,
+                        tabBarIcon: ({color}) => <Icon name="settings-outline" size={22} color={color}/>,
                     }}
                 />
             </Tab.Navigator>

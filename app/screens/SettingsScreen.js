@@ -1,11 +1,16 @@
-import { View, Text, Switch } from 'react-native';
-import { useColorScheme } from "nativewind";
+import {View, Text, Switch} from 'react-native';
+import useTheme from "../hooks/useTheme";
 
 export default function SettingsScreen() {
-    const { colorScheme, toggleColorScheme } = useColorScheme();
+    const theme = useTheme();
+
+    const toggleSwitch = () => {
+        console.log("change theme")
+    }
 
     return (
-        <View className="flex-1 flex-col justify-center items-center gap-4 dark:bg-gray-900">
+        <View className="flex-1 flex-col justify-center items-center gap-4"
+              style={{backgroundColor: theme.backgroundColor}}>
             <Text className="text-sm text-gray-500 dark:text-gray-400">
                 Appearance is set to follow the system preference by default.
             </Text>
@@ -14,8 +19,8 @@ export default function SettingsScreen() {
                     Dark Mode
                 </Text>
                 <Switch
-                    value={colorScheme === 'dark'}
-                    onValueChange={toggleColorScheme}
+                    value={false}
+                    onValueChange={toggleSwitch}
                 />
             </View>
         </View>

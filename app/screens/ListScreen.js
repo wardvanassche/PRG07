@@ -1,4 +1,5 @@
 import {View, Text, FlatList} from 'react-native';
+import useTheme from "../hooks/useTheme";
 
 export default function ListScreen() {
     const DATA = [
@@ -14,6 +15,8 @@ export default function ListScreen() {
         {id: 10, model: "S-Class", brand: "Mercedes-Benz"}
     ]
 
+    const theme = useTheme();
+
     return (
         <View className="flex-1 items-center dark:bg-gray-900">
             <View className="w-[96%]">
@@ -21,7 +24,7 @@ export default function ListScreen() {
                     data={DATA}
                     keyExtractor={(item) => item.id}
                     renderItem={({item}) => (
-                        <View className="py-6 px-4 bg-white rounded-lg my-2 dark:bg-gray-800">
+                        <View className="py-6 px-4 rounded-lg my-2" style={{backgroundColor: theme.cardBackground}}>
                             <Text className="text-lg font-semibold text-gray-800 dark:text-white">
                                 {item.model}
                             </Text>
