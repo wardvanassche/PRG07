@@ -1,18 +1,24 @@
-import {SafeAreaView, Text, View} from 'react-native';
-import MapView, {Callout, Marker} from 'react-native-maps';
+import {ActivityIndicator, SafeAreaView, Text, View} from 'react-native';
+import MapView, {Marker} from 'react-native-maps';
 import useLocation from '../hooks/useLocation';
 import React from 'react';
 import useHotspots from "../hooks/useHotspots";
 import Icon from 'react-native-vector-icons/Ionicons';
+import useTheme from "../hooks/useTheme";
 
 export default function MapScreen() {
     const {latitude, longitude} = useLocation();
     const {hotspots, loading} = useHotspots();
+    const theme = useTheme();
 
     if (latitude === null || longitude === null || loading) {
         return (
-            <SafeAreaView className="flex-1 justify-center items-center">
-                <Text>Loading location...</Text>
+            <SafeAreaView className="flex-1 gap-4 justify-center items-center">
+                <ActivityIndicator/>
+                <Text className="text-sm"
+                      style={{color: theme.textPrimary}}>
+                    Loading...
+                </Text>
             </SafeAreaView>
         );
     }
@@ -34,11 +40,7 @@ export default function MapScreen() {
                 <Marker
                     coordinate={{latitude: latitude, longitude: longitude}}
                 >
-                    <Callout>
-                        <View>
-                            <Text>Je bent hier</Text>
-                        </View>
-                    </Callout>
+                    <Icon name="navigate-circle" size={30} color="green"/>
                 </Marker>
                 {hotspots.map((hotspots, index) => (
                     <Marker

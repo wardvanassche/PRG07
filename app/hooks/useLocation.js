@@ -16,7 +16,7 @@ export default function useLocation() {
             }
 
             let {coords} = await Location.getCurrentPositionAsync({
-                accuracy: Location.Accuracy.Low,
+                accuracy: Location.Accuracy.High,
             });
 
             if (coords) {

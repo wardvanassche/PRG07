@@ -1,35 +1,51 @@
-import {View, Text, FlatList, ActivityIndicator, TouchableOpacity} from 'react-native';
+import {View, Text, FlatList, ActivityIndicator, TouchableOpacity, SafeAreaView} from 'react-native';
 import useTheme from "../hooks/useTheme";
 import useHotspots from "../hooks/useHotspots";
 import Icon from "react-native-vector-icons/Ionicons";
+import React from "react";
 
 export default function ListScreen() {
     const {hotspots, loading} = useHotspots();
     const theme = useTheme();
 
-    if (loading) return <ActivityIndicator />;
+    if (loading) {
+        return (
+            <SafeAreaView className="flex-1 gap-4 justify-center items-center">
+                <ActivityIndicator/>
+                <Text className="text-sm"
+                      style={{color: theme.textPrimary}}>
+                    Loading...
+                </Text>
+            </SafeAreaView>
+        )
+    }
 
     return (
-        <View className="flex-1 items-center dark:bg-gray-900">
-            <View className="w-[96%]">
+        <View className="flex-1 items-center"
+              style={{backgroundColor: theme.backgroundColor}}>
+            <View className="w-full">
                 <FlatList
                     data={hotspots}
                     keyExtractor={(item) => item.attributes.systeem_id}
                     renderItem={({item}) => (
-                        <View className="flex-1 flex-row py-6 px-4 rounded-lg my-2 shadow-sm" style={{backgroundColor: theme.cardBackground}}>
+                        <View className="flex-row py-6 px-4 rounded-lg my-2 shadow-sm w-[88%] self-center"
+                              style={{backgroundColor: theme.cardBackground}}>
                             <View>
-                                <Text className="text-base font-semibold text-gray-900 dark:text-white">
+                                <Text className="text-base font-semibold mb-1"
+                                      style={{color: theme.textPrimary}}>
                                     {item.attributes.BEMALINGSGEBIED}
                                 </Text>
-                                <Text className="text-sm font-medium text-gray-600 dark:text-gray-300 mt-1">
+                                <Text className="text-sm font-medium mt-1"
+                                      style={{color: theme.textSecondary}}>
                                     Knoopnummer: {item.attributes.KNOOPNUMMER}
                                 </Text>
-                                <Text className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                                <Text className="text-sm text-gray-500 dark:text-gray-400 mt-1"
+                                      style={{color: theme.textSecondary}}>
                                     Aanlegjaar: {item.attributes.AANLEGJAAR}
                                 </Text>
                             </View>
                             <TouchableOpacity className="flex-1 justify-center items-end">
-                                <Icon name="heart-outline" size={28} color="red" />
+                                <Icon name="heart-outline" size={28} color="green"/>
                             </TouchableOpacity>
                         </View>
                     )}

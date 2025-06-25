@@ -7,14 +7,19 @@ import SettingsScreen from './app/screens/SettingsScreen';
 import "./global.css";
 import Icon from 'react-native-vector-icons/Ionicons';
 import useTheme from "./app/hooks/useTheme";
+import {ThemeProvider} from "./app/context/ThemeContext";
+import {StatusBar} from "react-native";
 
 const Tab = createBottomTabNavigator();
 
-export default function App() {
+function AppContent() {
     const theme = useTheme();
 
     return (
         <NavigationContainer>
+            <StatusBar
+                barStyle={theme.name === 'dark' ? 'light-content' : 'dark-content'}
+            />
             <Tab.Navigator
                 screenOptions={{
                     animation: "shift",
@@ -62,5 +67,13 @@ export default function App() {
                 />
             </Tab.Navigator>
         </NavigationContainer>
+    );
+}
+
+export default function App() {
+    return (
+        <ThemeProvider>
+            <AppContent/>
+        </ThemeProvider>
     );
 }

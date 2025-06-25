@@ -1,5 +1,7 @@
 export const Themes = {
     light: {
+        name: 'light',                         // name: light
+
         backgroundColor: '#FFFFFF',            // bg-white
         cardBackground: '#FFFFFF',             // bg-white
         textPrimary: '#1F2937',                // text-gray-800
@@ -17,6 +19,8 @@ export const Themes = {
         headerIconColor: '#1F2937',            // text-gray-800
     },
     dark: {
+        name: 'dark',                          // name: dark
+
         backgroundColor: '#111827',            // dark:bg-gray-900
         cardBackground: '#1F2937',             // dark:bg-gray-800
         textPrimary: '#FFFFFF',                // dark:text-white
