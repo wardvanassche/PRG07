@@ -4,7 +4,7 @@ import useHotspots from "../hooks/useHotspots";
 import Icon from "react-native-vector-icons/Ionicons";
 import React from "react";
 
-export default function ListScreen() {
+export default function ListScreen({navigation}) {
     const {hotspots, loading} = useHotspots();
     const theme = useTheme();
 
@@ -28,8 +28,9 @@ export default function ListScreen() {
                     data={hotspots}
                     keyExtractor={(item) => item.attributes.systeem_id}
                     renderItem={({item}) => (
-                        <View className="flex-row py-6 px-4 rounded-lg my-2 shadow-sm w-[88%] self-center"
-                              style={{backgroundColor: theme.cardBackground}}>
+                        <View
+                            className="flex-row py-6 px-4 rounded-lg my-2 shadow-sm w-[88%] self-center justify-between"
+                            style={{backgroundColor: theme.cardBackground}}>
                             <View>
                                 <Text className="text-base font-semibold mb-1"
                                       style={{color: theme.textPrimary}}>
@@ -44,9 +45,16 @@ export default function ListScreen() {
                                     Aanlegjaar: {item.attributes.AANLEGJAAR}
                                 </Text>
                             </View>
-                            <TouchableOpacity className="flex-1 justify-center items-end">
-                                <Icon name="heart-outline" size={28} color="green"/>
-                            </TouchableOpacity>
+                            <View className="flex justify-center">
+                                <View className="flex-row gap-4">
+                                    <TouchableOpacity onPress={() => navigation.navigate('Map', {selectedHotspot: item.geometry})}>
+                                        <Icon name="map-outline" size={28} color="blue"/>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity>
+                                        <Icon name="heart-outline" size={28} color="green"/>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
                         </View>
                     )}
                 />
