@@ -47,7 +47,7 @@ export default function ListScreen({navigation}) {
                             </View>
                             <View className="flex justify-center">
                                 <View className="flex-row gap-4">
-                                    <TouchableOpacity onPress={() => navigation.navigate('Map', {selectedHotspot: item.geometry})}>
+                                    <TouchableOpacity onPress={() => navigation.navigate('Kaart', {selectedHotspot: item.geometry})}>
                                         <Icon name="map-outline" size={28} color="blue"/>
                                     </TouchableOpacity>
                                     <TouchableOpacity>

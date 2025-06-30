@@ -13,7 +13,7 @@ export default function SettingsScreen() {
             <View className="flex-row gap-4 items-center">
                 <Text className="text-lg font-medium"
                       style={{color: theme.textPrimary}}>
-                    Dark Mode
+                    Donker Thema
                 </Text>
                 <Switch
                     value={themeName === 'dark'}

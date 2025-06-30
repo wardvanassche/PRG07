@@ -44,7 +44,7 @@ function AppContent() {
                 }}
             >
                 <Tab.Screen
-                    name="Map"
+                    name="Kaart"
                     component={MapScreen}
                     options={{
                         tabBarIcon: ({color}) => <Icon name="map-outline" size={22} color={color}/>,
@@ -52,14 +52,14 @@ function AppContent() {
                     }}
                 />
                 <Tab.Screen
-                    name="List"
+                    name="Lijst"
                     component={ListScreen}
                     options={{
                         tabBarIcon: ({color}) => <Icon name="list-outline" size={22} color={color}/>,
                     }}
                 />
                 <Tab.Screen
-                    name="Settings"
+                    name="Instellingen"
                     component={SettingsScreen}
                     options={{
                         tabBarIcon: ({color}) => <Icon name="settings-outline" size={22} color={color}/>,
