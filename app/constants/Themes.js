@@ -1,40 +1,48 @@
 export const Themes = {
     light: {
-        name: 'light',                         // name: light
+        name: 'light',
 
-        backgroundColor: '#FFFFFF',            // bg-white
-        cardBackground: '#FFFFFF',             // bg-white
-        textPrimary: '#1F2937',                // text-gray-800
-        textSecondary: '#4B5563',              // text-gray-600
+        backgroundColor: '#FFFFFF',
+        textPrimary: '#1F2937',
+        textSecondary: '#4B5563',
+
+        // Card
+        cardBackground: '#FFFFFF',
+        buttonMap: '#004570',
+        buttonFavorite: '#E63946',
 
         // Tab Bar
-        tabBarBorderColor: '#E5E7EB',          // border-gray-200
-        tabBarActiveTintColor: '#1F2937',      // text-gray-800
-        tabBarInactiveTintColor: '#9CA3AF',    // text-gray-400
+        tabBarBorderColor: '#E5E7EB',
+        tabBarActiveTintColor: '#004570',
+        tabBarInactiveTintColor: '#9CA3AF',
 
         // Header
-        headerBackgroundColor: '#F9FAFB',      // bg-gray-50
-        headerBorderColor: '#E5E7EB',          // border-gray-200
-        headerTextColor: '#1F2937',            // text-gray-800
-        headerIconColor: '#1F2937',            // text-gray-800
+        headerBackgroundColor: '#F9FAFB',
+        headerBorderColor: '#E5E7EB',
+        headerTextColor: '#1F2937',
+        headerIconColor: '#1F2937',
     },
     dark: {
-        name: 'dark',                          // name: dark
+        name: 'dark',
 
-        backgroundColor: '#111827',            // dark:bg-gray-900
-        cardBackground: '#1F2937',             // dark:bg-gray-800
-        textPrimary: '#FFFFFF',                // dark:text-white
-        textSecondary: '#D1D5DB',              // dark:text-gray-300
+        backgroundColor: '#111827',
+        textPrimary: '#FFFFFF',
+        textSecondary: '#D1D5DB',
+
+        // Card
+        cardBackground: '#1F2937',
+        buttonMap: '#3B82F6',
+        buttonFavorite: '#F43F5E',
 
         // Tab Bar
-        tabBarBorderColor: '#374151',          // border-gray-700
-        tabBarActiveTintColor: '#FFFFFF',      // white
-        tabBarInactiveTintColor: '#9CA3AF',    // text-gray-400
+        tabBarBorderColor: '#374151',
+        tabBarActiveTintColor: '#FFFFFF',
+        tabBarInactiveTintColor: '#9CA3AF',
 
         // Header
-        headerBackgroundColor: '#1F2937',      // bg-gray-800
-        headerBorderColor: '#374151',          // border-gray-700
-        headerTextColor: '#FFFFFF',            // white
-        headerIconColor: '#FFFFFF',            // white
+        headerBackgroundColor: '#1F2937',
+        headerBorderColor: '#374151',
+        headerTextColor: '#FFFFFF',
+        headerIconColor: '#FFFFFF',
     }
 }

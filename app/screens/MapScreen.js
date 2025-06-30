@@ -64,25 +64,25 @@ export default function MapScreen() {
                 {hotspots.map((hotspots, index) => (
                     <Marker
                         key={index}
-                        coordinate={{longitude: hotspots.geometry.x, latitude: hotspots.geometry.y}}
+                        coordinate={{longitude: hotspots.properties.longitude, latitude: hotspots.properties.latitude}}
                     >
                         <View className="items-center">
-                            <Icon name="water" size={30} color="blue"/>
+                            <Icon name="water" size={30} color="#004570" />
                         </View>
                         <Callout tooltip>
                             <View className="w-80 p-6 rounded-lg"
                                   style={{backgroundColor: theme.backgroundColor}}>
                                 <Text className="text-base font-semibold mb-1"
                                       style={{color: theme.textPrimary}}>
-                                    {hotspots.attributes.BEMALINGSGEBIED}
+                                    {hotspots.properties.beschrijvi}
                                 </Text>
                                 <Text className="text-sm font-medium mt-1"
                                       style={{color: theme.textSecondary}}>
-                                    Knoopnummer: {hotspots.attributes.KNOOPNUMMER}
+                                    Plaats: {hotspots.properties.plaats}
                                 </Text>
                                 <Text className="text-sm text-gray-500 dark:text-gray-400 mt-1"
                                       style={{color: theme.textSecondary}}>
-                                    Aanlegjaar: {hotspots.attributes.AANLEGJAAR}
+                                    Datum: {hotspots.properties.datum}
                                 </Text>
                             </View>
                         </Callout>

@@ -6,7 +6,7 @@ export default function useHotspots() {
 
     const fetchData = async () => {
         try {
-            const response = await fetch("https://services7.arcgis.com/21GdwfcLrnTpiju8/arcgis/rest/services/Watertappunten/FeatureServer/0/query?where=1%3D1&outFields=AANLEGJAAR,BEMALINGSGEBIED,systeem_id,KNOOPNUMMER&outSR=4326&f=json")
+            const response = await fetch("https://data.rivm.nl/geo/alo/wfs?request=GetFeature&service=WFS&version=1.1.0&outputFormat=application%2Fjson&typeName=alo:rivm_drinkwaterkranen_actueel")
             const data = await response.json()
             console.log(data.features)
             setHotspots(data.features)

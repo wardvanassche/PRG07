@@ -26,32 +26,35 @@ export default function ListScreen({navigation}) {
             <View className="w-full">
                 <FlatList
                     data={hotspots}
-                    keyExtractor={(item) => item.attributes.systeem_id}
+                    keyExtractor={(item) => item.id}
                     renderItem={({item}) => (
-                        <View
-                            className="flex-row py-6 px-4 rounded-lg my-2 shadow-sm w-[88%] self-center justify-between"
-                            style={{backgroundColor: theme.cardBackground}}>
-                            <View>
-                                <Text className="text-base font-semibold mb-1"
-                                      style={{color: theme.textPrimary}}>
-                                    {item.attributes.BEMALINGSGEBIED}
-                                </Text>
-                                <Text className="text-sm font-medium mt-1"
-                                      style={{color: theme.textSecondary}}>
-                                    Knoopnummer: {item.attributes.KNOOPNUMMER}
-                                </Text>
-                                <Text className="text-sm text-gray-500 dark:text-gray-400 mt-1"
-                                      style={{color: theme.textSecondary}}>
-                                    Aanlegjaar: {item.attributes.AANLEGJAAR}
-                                </Text>
-                            </View>
-                            <View className="flex justify-center">
-                                <View className="flex-row gap-4">
-                                    <TouchableOpacity onPress={() => navigation.navigate('Kaart', {selectedHotspot: item.geometry})}>
-                                        <Icon name="map-outline" size={28} color="blue"/>
+                        <View className="py-6 px-4 rounded-lg my-2 shadow-sm w-[88%] self-center"
+                              style={{backgroundColor: theme.cardBackground}}>
+
+                            <Text className="text-base font-semibold mb-1"
+                                  style={{color: theme.textPrimary}}>
+                                {item.properties.beschrijvi}
+                            </Text>
+
+                            <View className="flex-row justify-between items-end mt-4">
+                                <View>
+                                    <Text className="text-sm font-medium mt-1"
+                                          style={{color: theme.textSecondary}}>
+                                        Plaats: {item.properties.plaats}
+                                    </Text>
+                                    <Text className="text-sm text-gray-500 dark:text-gray-400 mt-1"
+                                          style={{color: theme.textSecondary}}>
+                                        Datum: {item.properties.datum}
+                                    </Text>
+                                </View>
+
+                                <View className="flex-row gap-4 items-center">
+                                    <TouchableOpacity
+                                        onPress={() => navigation.navigate('Kaart', {selectedHotspot: item.geometry})}>
+                                        <Icon name="map-outline" size={26} color={theme.buttonMap}/>
                                     </TouchableOpacity>
                                     <TouchableOpacity>
-                                        <Icon name="heart-outline" size={28} color="green"/>
+                                        <Icon name="heart-outline" size={30} color={theme.buttonFavorite}/>
                                     </TouchableOpacity>
                                 </View>
                             </View>
