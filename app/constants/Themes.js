@@ -5,6 +5,7 @@ export const Themes = {
         backgroundColor: '#FFFFFF',
         textPrimary: '#1F2937',
         textSecondary: '#4B5563',
+        buttonFilter: '#D7263D',
 
         // Card
         cardBackground: '#FFFFFF',
@@ -28,6 +29,7 @@ export const Themes = {
         backgroundColor: '#111827',
         textPrimary: '#FFFFFF',
         textSecondary: '#D1D5DB',
+        buttonFilter: '#FF6B81',
 
         // Card
         cardBackground: '#1F2937',
